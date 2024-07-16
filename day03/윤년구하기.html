@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 4의 배수 유년
+    100의 배수 윤년x
+    400의 배수 유년 -->
+    <script>
+        var 연도;
+        연도 = 2000;
+
+        // 첫번째 해결방법
+        // if((연도 % 4 === 0 && 연도 % 100 !== 0) || 연도 % 400 === 0){
+        //     console.log(`${연도}년은 윤년입니다.`)
+        // }else{
+        //     console.log(`${연도}년은 윤년이 아닙니다.`)
+        // }
+
+        // 두번째 해결방법
+        if(연도 % 400 === 0){
+            console.log(`${연도}년은 윤년입니다.`)
+        }else  if(연도 % 100 === 0){
+            console.log('윤년이 아닙니다.')
+        }else if(연도 % 4 === 0){
+            console.log('윤년입니다.')
+        }else{
+            console.log('윤년이 아닙니다.')
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        var  숫자;
+        숫자 = 11;
+
+        // 짝수를 의미
+        숫자 % 2 === 0
+        // 홀수를 의미
+        숫자 % 2 !== 0
+        숫자 % 2 === 1
+
+        if(숫자 % 2 === 0) {
+            console.log(`입력한 숫자는 ${숫자} 이고, 짝수입니다.`)
+        }else {
+            console.log(`입력한 숫자는 ${숫자} 이고, 홀수입니다.`)
+        };
+
+        // 삼항연산자로 표현
+        console.log(`입력한 수치는 '${숫자}'이고, ${숫자 % 2 === 0? '짝수' : '홀수'}입니다`);
+
+        var 경력;
+        경력 = 3;
+
+        // 큰 범위부터 작은 범위로 내려오기
+        if(경력 > 10) {
+            console.log('모시고 옵니다.')
+        }else if(경력 > 5) {
+            console.log('우선 채용')
+        }else if(경력 > 1) {
+            console.log('일반 채용')
+        }else {                                         // else에는 조건 넣지 않기
+            console.log('신입은 채용할 수 없습니다.')
+        };
+        
+    </script>
+</body>
+</html>
