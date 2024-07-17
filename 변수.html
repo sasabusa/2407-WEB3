@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+
+
+    <!-- 초창기 js는 의도적으로 얼렁뚱땅 만들어졌다. -->
+    <script>
+        var 변수이름;
+        // 그래서 이 녀석에 문제가 많다. 
+        // 변수는 정확한 스코프를 가져야한다.
+        // 스코프는 변수가 영향을 미칠 수 있는 범위를 이야기 하고
+        // 범위 밖에서는 접근이 불가능해야 한다.
+        // 그렇지 않으면 개발이 매우 힘들어지는데...
+        // var는 이 범위 설정이 잘못되어있다.
+
+
+
+        let 변수 = 20;
+            변수 = 40;
+            const 출생년도 = 1993;
+
+            // 출생년도 = 2000; //변수 재선언을 하면 오류 발생.
+
+            console.log(변수);
+            console.log(출생년도);
+
+            
+    </script>
+
+
+</body>
+</html>
