@@ -11,11 +11,12 @@
 
 
     <script>
-        const line = 10;
+        let num = 10;
+        num = 3;
 
-        for(let i = 0; i < line; i++){
+        for(let i = 0; i < num; i++){
             document.write(`★`);
-            for(let j = 0; j < i; j++ )
+            for(let j = 1; j < i+1; j++)
             document.write(`★`);
             document.write(`<br>`);
         }
