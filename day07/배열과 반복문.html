@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        // const alpha = ['a','b','c','d','e']
+
+        // console.log(alpha);
+        // console.log(alpha[0]);
+        // console.log(alpha[1]);
+        // console.log(alpha[2]);
+        // console.log(alpha[3]);
+        // console.log(alpha[4]);
+        // console.log(alpha[5]);
+
+        // for(let i = 0; i < 5; i++){
+        //     console.log(alpha[i]);
+        // }
+
+        // 배열의 갯수가 변하더라도 항상 모두 노출
+        // for(let i = 0; i < alpha.length; i++){
+        //     console.log(alpha[i]);
+        // }
+
+        // const arr = [];
+
+        // 배열에 1부터 100까지 넣기
+        // for(let i = 1; i <= 100; i++){
+        //     arr.push(i);
+        // }
+        // console.log(arr);
+
+        // arr 안에 짝수가 몇개 있는지 궁금합니다.
+        // console.log()에 짝수가 몇개인지 출력 해주세요.
+
+        // const 짝수 = [];
+        // for(let i = 1; i <= 100; i++){
+        //     if(i % 2 === 0){
+        //         짝수.push(i)
+        //     }else{
+
+        //     }
+        // }
+        // console.log(짝수);
+        // console.log(짝수.length);
+
+        
+        // const arr2 = [ 1 , 4 , 2 , 2 , 4 , 3 , 2 , 4 ]
+
+        // 배열 안에 3 이상인 값은 몇개인가?
+        // for(let i = 0; i <= arr2.length; i++){
+        //     if(arr2[i] < 3){
+        //         arr2.shift(i);
+        //     }
+        // }
+        // console.log(arr2);
+        // console.log(arr2.length);
+
+        // const 난수 = Math.random();
+        // console.log(난수);
+        // 0 이상 1 미만
+        // 0~0.999999999999999... 까지 나온다.
+        
+        
+        // 0 부터 4 까지 만들고 싶은 상황
+        // *4
+        // 최소값 : 0, 최대값 : 3.99999
+        // 소수점을 버리면?
+
+        // const 영부터사 = parseInt(Math.random()*5)
+
+        for(let i = 0; i < 10; i++){
+            console.log(parseInt(Math.random()*5));
+        }
+
+        // 20부터 80까지 난수
+        console.log(parseInt(Math.random()*61)+20);
+
+        let max = 0;
+        let min = 10000;
+
+        for(let i = 0; i < 500000; i++){
+            const randomNumber = parseInt(Math.random()*61)+20
+            if(randomNumber > max){
+                max = randomNumber;
+            }
+
+            if(randomNumber < min){
+                min = randomNumber;
+            }
+        }
+
+        console.log(max,min);
+
+        // parseInt(Math.random()*범위) + 시작값
+    </script>
+
+
+
+    
+</body>
+</html>
