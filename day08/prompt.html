@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- prompt는 간편하게 입력받을 수 있는 함수이지만, -->
+    <!-- 다양한 문제점으로 인해 잘 쓰이지 않는다. -->
+    <!-- 오늘 예제 작성시 편의성을 위해 사용할 것 -->
+
+    <script>
+        // const msg = prompt('오늘 기분은 어떤가요?');
+        // console.log(msg);
+
+
+
+
+        const 범위 = 100;
+        const 정답 = parseInt(Math.random()*범위)+1;
+        const 기회 = 5;
+        
+        for(let i = 0; i < 5; i++){
+            alert(`정답은 ${정답}입니다.`);
+
+            const 답변 = parseInt(prompt('내가 생각한 숫자는?')); //parseInt 문자열을 정수로 변경
+            //'50' // const 답변 = '50'  const 답변 = parseInt('50')   // '50'을 50으로 변경
+            
+            if(답변 === 정답) {
+                alert('정답입니다.')
+                alert(정답);
+                // i = 5; // 정답이 맞으면 반복문 종료
+                break;
+            }else if( 답변 > 정답){
+                alert('down')
+            }else{
+                alert('up')
+            }
+        }
+
+
+
+
+    </script>
+
+
+</body>
+</html>
