@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            transition: 0.5s;
+        }
+
+        .box.active{
+            opacity: 0;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <button class="switch">스위치</button>
+
+
+    <script>
+    const box = document.getElementsByClassName('box');
+    const button = document.querySelector('.switch');  //쿼리셀렉터로 가져올 때는 점(.)을 찍어줘야함
+
+    console.log(box[0]);
+    console.log(button);
+
+    box[0].classList.add('active')
+
+    button.addEventListener('click',()=>{
+        box[0].classList.add('active')
+    })
+
+
+    // 나의 정답 잘못됨. window 넣으면 안됨
+    // window.addEventListener('click', () => {
+    //     btn[0].classList.add('active');
+
+    // })
+
+    
+    // box[0].classList.contains('active') box[0]이 active라는 클래스를 가졌는지
+    // 가졌으면 true 안가졌으면 false
+
+    // if문과 위의 contains를 이용해 스위치를 누를때마다 켜졌다 꺼졌다 반복되는
+    // 인터렉션을 만들어봅시다.
+    
+    </script>
+
+
+
+</body>
+</html>
