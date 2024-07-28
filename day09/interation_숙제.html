@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            margin-top: 50px;
+            margin-left: 50px;
+            width: 200px;
+            text-align: center;
+            border: 1px solid black;
+            border-radius: 15px;
+        }
+        .box{
+            width: 100px;
+            height: 100px;
+            margin: 0 auto;
+            background-color: pink;
+            transition: 0.5s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 10px;
+            border-radius: 15px;
+        }
+        .box.active{
+            /* opacity: 0.5; */
+            background-color: yellow;
+        }
+        .switch{
+            width: 100px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            background-color: yellowgreen;
+            border: 2px solid yellowgreen;
+            cursor: pointer;
+            transition: 0.7s;
+        }
+        .red-color{
+            background-color: red;
+            border: 2px solid red;
+            color: yellow;
+            font-weight: bold;
+            margin-top: 200px;
+            margin-bottom: 50px;
+            /* height: 300px; */
+            width: 80px;
+            font-size: 10px;
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Do Homework</h2>
+        <div class="box">안녕~ Hi~</div>
+        <button class="switch">클릭 해봐~</button>
+    </div>
+
+
+    <script>
+    // box[0].classList.contains('active') box[0]이 active라는 클래스를 가졌는지
+    // 가졌으면 true 안가졌으면 false
+
+    // 숙제
+    // if문과 위의 contains를 이용해 스위치를 누를때마다 켜졌다 꺼졌다 반복되는
+    // 인터렉션을 만들어봅시다.
+
+    // +추가 : classList.remove('클래스이름') 을 이용해 클래스를 제거할 수 있습니다
+
+    // const box = document.getElementsByClassName('box');  //이거를 사용하면 안된다. 어떤 차이가 있나?
+    const box = document.querySelector('.box');
+    const button = document.querySelector('.switch');
+    
+    button.addEventListener('click', () => {
+        if (box.classList.contains('active')) {
+            box.classList.remove('active');
+            box.textContent = '안녕~ Hi~';
+        } else {
+            box.classList.add('active');
+            box.textContent = '잘가~ Bye~';
+        }
+    });
+    
+    console.log(box);
+    console.log(button);
+
+    // const sbtn = document.querySelector(".switch")
+    // sbtn.addEventListener('click', () => {
+    //     sbtn.style.backgroundColor = "red";
+    // });
+
+    const sbtn = document.querySelector('.switch');
+    // 같음 setInterval(function() {
+    setInterval( ()=> {
+        sbtn.classList.toggle("red-color");
+    }, 1000);
+
+    </script>
+
+</body>
+</html>
