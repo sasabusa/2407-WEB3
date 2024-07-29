@@ -16,17 +16,11 @@
             opacity: 0;
         }
 
-
     </style>
 </head>
 <body>
     <div class="box"></div>
     <button class="switch">스위치</button>
-
-    <h2>숙제 영역</h2>
-    <div class="box2"></div>
-    <button class="switch2">스위치(숙제)</button>
-
 
     <script>
     const box = document.getElementsByClassName('box');
@@ -35,17 +29,11 @@
     console.log(box[0]);
     console.log(button);
 
-
     button.addEventListener('click',()=>{
         box[0].classList.add('active');
     })
 
-
-
-    
     </script>
-
-
 
 </body>
 </html>
