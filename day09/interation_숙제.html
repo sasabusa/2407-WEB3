@@ -59,7 +59,6 @@
         <button class="switch">클릭 해봐~</button>
     </div>
 
-
     <script>
     // box[0].classList.contains('active') box[0]이 active라는 클래스를 가졌는지
     // 가졌으면 true 안가졌으면 false
@@ -98,7 +97,14 @@
         sbtn.classList.toggle("red-color");
     }, 1000);
 
-    </script>
+    // Tip. 이동되는 범위를 난수로 지정하면 클릭하기 더 어려워짐
 
+    // toggle로 간단하게 구현
+    // button.addEventListener('click',() => {
+    //     box[0].classList.toggle('active')
+    // })
+
+
+    </script>
 </body>
 </html>

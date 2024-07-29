@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            margin-top: 5px;
+            margin-left: 5px;
+        }
+
+        .rect{
+            
+            width: 300px;
+            height: 100px;
+            border: 1px solid #222;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="color-box">
+        <div class="rect"></div>
+        <input type="range" name="" id="">
+    </div>  
+
+    <div class="color-box">
+        <div class="rect"></div>
+        <input type="range" name="" id="">
+    </div>  
+    <div class="color-box">
+        <div class="rect"></div>
+        <input type="range" name="" id="">
+    </div>  
+    <div class="color-box">
+        <div class="rect"></div>
+        <input type="range" name="" id="">
+    </div>  
+    <div class="color-box">
+        <div class="rect"></div>
+        <input type="range" name="" id="">
+    </div>  
+
+
+
+    <script>
+        // 내가 작성한 내용
+        // const colorBox = document.querySelector('.color-box');
+        // const rect = document.querySelector('.rect');
+
+        // rect.addEventListener('여기 뭘 넣지?', () => {
+        //     for
+        // });
+        
+
+        // 박스가 여러개 추가가 되어도 다 적용이 된다고 한다... 반복문 안에 const를 넣어서... 아직 이해가 안되네;;;
+        const colorBox = document.getElementsByClassName('color-box');
+
+        for(let i = 0; i < colorBox.length; i++){
+            const rect = colorBox[i].querySelector('.rect');
+            const range = colorBox[i].querySelector('input');
+            
+
+            // range의 값이 얼마인가?
+            range.addEventListener('change', () => {
+                rect.style.backgroundColor = `hsl(0, 0%, ${100-range.value}%)`
+                console.log(range.value);
+
+            })
+
+            // rect.addEventListener('click', () => {
+            //     // 개체.style.속성이름 = '문자열로 속성지정'
+            //     rect.style.backgroundColor = 'red'
+            // })
+
+        }
+
+
+    </script>
+</body>
+</html>
