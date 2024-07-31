@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Index</title>
+    <title>Document</title>
     <style>
         *{
             margin: 0;
@@ -40,8 +40,6 @@
             <li class="content">1</li>
             <li class="content">2</li>
             <li class="content">3</li>
-            <li class="content">4</li>
-            <li class="content">5</li>
         </ul>
     </div>
     <div class="controls">
@@ -50,41 +48,28 @@
     </div>
 
     <script>
-        // 오타 방지위해 자동완성 사용하기
-
         const contentWrapper = document.querySelector('.content-wrapper');
         const nextButton = document.querySelector('.next');
         const prevButton = document.querySelector('.prev');
-        // clientWidth 속성은 요소의 가로 값(마진/보더 불포함)을 가져옵니다.
-        const slideWidth = contentWrapper.children[0].clientWidth
 
-        // index 왜 넣지? 용도가 뭐야?
-        let index = 0;
-        
-        prevButton.addEventListener('click',() => {
-            index--;
-            if(index < 0){
-                index = 0;
-            }
+        let 좌표 = 0;
 
-            contentWrapper.style.transform = `translateX(${index * -300}px)`
-            console.log(index)
+        prevButton.addEventListener('click', () => {
+            좌표 += 300;  
+            contentWrapper.style.transform = `translateX(${좌표}px)`
         })
-        
-        nextButton.addEventListener('click',() => {
-            index++;
-            // ParentNode.childElementCount - 자식 요소의 개수를 반환하는 속성
-            // 자식 요소의 인덱스는 0부터 시작, 마지막 자식 요소의 인덱스는 childElementCount - 1
-            if(index > contentWrapper.childElementCount-1){
-                index = contentWrapper.childElementCount-1; 
-                console.log(index, contentWrapper, contentWrapper.childElementCount)
+
+        nextButton.addEventListener('click', () => {
+            좌표 -= 300;
+            contentWrapper.style.transform = `translateX(${좌표}px)`
+
+            if(좌표 < -600){
+                좌표 = -600
             }
-            
-            contentWrapper.style.transform = `translateX(${index * -300}px)`
-            console.log(index)
+            contentWrapper.style.transform = `translateX(${좌표}px)`
         })
+
 
     </script>
 </body>
 </html>
-
