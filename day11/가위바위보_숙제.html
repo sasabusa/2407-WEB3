@@ -38,10 +38,16 @@
      -->
 
      <script>
+         // parseInt 문자를 숫자로 변형, parseInst('123') -> 123, 정수로 변형 : 3.14 > 3
+         // 소수점은 parseFloat
+        // 소수점을 정수로 변환시키기 위해 parseInt 사용
         const computer = parseInt(Math.random()*3);
 
-        // prompt 에 , 로 구분해서 출력하는거 알아보기
-        const user = parseInt(prompt('가위바위보게임', '0 : 가위, 1 : 바위 ,2 : 보'))
+        // prompt(사용자에게 보여줄 문자열, 텍스트 입력 필드에 기본으로 채워 넣을 문자열)
+        // prompt는 문자열을 입력받음, 23을 입력하면, '23'으로 표현, 따라서 parseInt를 사용함.
+        // typeof 자료형 알기(ex, number, string)
+        // typeof parseInt(prompt()); / typeof prompt();
+        const user = parseInt(prompt('가위바위보게임', '0 : 가위, 1 : 바위 ,2 : 보'));
 
         if(computer === user) {
             alert('무승부!')
@@ -51,7 +57,7 @@
             alert('패배..')
         }
 
-        console.log(user, computer)
+        console.log(user, computer);
      </script>
 </body>
 </html>

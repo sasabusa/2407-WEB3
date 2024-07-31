@@ -77,10 +77,10 @@
 
         const table = ['가위','바위','보']
 
-        for(let i = 0 ; i < boardContainer.childElementCount; i ++ ){
+        for(let i = 0; i < boardContainer.childElementCount; i ++ ){
 
             
-            boardContainer.children[i].addEventListener('click', ()=> {
+            boardContainer.children[i].addEventListener('click', () => {
                 const user = i;
                 const computer = parseInt(Math.random()*3);
 
