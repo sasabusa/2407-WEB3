@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .slider{
+            width: 300px;
+            height: 200px;
+            overflow: hidden; /* 영역 벗어난 부분, 안보게 처리*/
+        }
+
+        .content-wrapper{
+            display: flex;
+            transition: 0.5s;
+        }
+        .content{
+            width: 300px;
+            height: 200px;
+            background-color: pink;
+
+            flex-shrink: 0; /* 브라우저 크기에 따라 안줄어들게*/
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div class="slider">
+        <ul class="content-wrapper">
+            <li class="content">1</li>
+            <li class="content">2</li>
+            <li class="content">3</li>
+        </ul>
+    </div>
+    <div class="controls">
+        <button class="prev">이전</button>
+        <button class="next">다음</button>
+    </div>
+
+    <script>
+        // 내가 쓴 답
+        // const btnNext = document.querySelector('.next');
+
+        // btnNext.addEventListener('click', () => {
+        //     document.getElementsByClassName('.content').style.width = 600;
+        // })
+
+        const contentWrapper = document.querySelector('.content-wrapper');
+        const nextButton = document.querySelector('.next');
+        const prevButton = document.querySelector('.prev');
+
+        // ★★ 값을 잘 가져왔는지, 확인해 보는것 ★★
+        // console.log(contentWrapper); 
+
+        let 좌표 = 0;
+        
+        prevButton.addEventListener('click',() => {
+            좌표 = 좌표 + 300;
+            // 좌표 += 300; // 같은 의미
+            // contenWrapper를 -300px만큼 이동하게 해야함
+            contentWrapper.style.transform = `translateX(${좌표}px)`
+        })
+        
+        nextButton.addEventListener('click',() => {
+            좌표 = 좌표 - 300;
+            // 좌표 -= 300; // 같은 의미
+            // contenWrapper를 -300px만큼 이동하게 해야함
+            contentWrapper.style.transform = `translateX(${좌표}px)`
+
+            // if문을 통해 마지막 슬라이더 안넘어가게 하기?? 어렵!!
+            // 최소값은 -600이어야야 함(3장 기준)
+            // -600에서 한번 더 클릭하면 -900
+            if(좌표 < -600){
+                좌표 = -600
+            }
+            contentWrapper.style.transform = `translateX(${좌표}px)`
+        })
+
+    </script>
+</body>
+</html>
+
