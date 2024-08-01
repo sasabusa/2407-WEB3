@@ -21,10 +21,13 @@
         // setTimeout(실행될함수,타이머)
 
         const adButton = document.querySelector('.ad');
-        const 
-        adButton.addEventListener('click', ()=>{
-            
+        const pText = document.querySelector('p.text');
 
+        adButton.addEventListener('click', () => {
+            pText.innerText = '광고일까요?';
+            setTimeout(()=>{
+                pText.innerText = '광고입니다!';
+            },2000)
         })
 
 
@@ -37,10 +40,22 @@
         //     alert('광고예요');
         // }
 
+        // setTimeout() 함수 문법
+        // setTimeout(function, milliseconds, parameter1, parameter2, ...);
+        // setTimeout(함수 자체 또는 기명 함수, 기다리는 시간, 
+        // ex)
+        // function greeting(name, role){
+        //     console.log(`Hello, my name is ${name}`);
+        //     console.log(`I'm a ${role}`);
+        //   }
+          
+        //   setTimeout(greeting, 3000, "Nathan", "Software developer");
+
+
 
         setTimeout(()=>{
             alert('광고일걸요?')
-        },2000)
+        }, 2000)
 
         
 

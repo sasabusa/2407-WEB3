@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            안녕하세요
+        </div>
+    </div>
+
+    <div class="other-side">
+        <div>기</div>
+        <div>존</div>
+        <div>요</div>
+        <div>소</div>
+    </div>
+
+    <script>
+
+        const container = document.querySelector('.container');
+        const otherSide = document.querySelector('.other-side');
+  
+        for(let i = 0; i < 4; i++) {
+            // cloneNode : dom의 요소(element)를 복사하는 함수
+            // true : 자식 노드를 함께 복사
+            // false : 해당 요소만 복제
+            const cloneContainer = container.cloneNode(true);
+            cloneContainer.classList.add('clone');
+            // appendChild : 부모 노드의 자식 노드 목록의 맨뒤에 매개변수로 전달 받은 노드를 추가
+            // parentNode.appendChild(childNode);
+            otherSide.appendChild(cloneContainer);
+        }
+
+        const cloneContainerToFront = container.cloneNode(true);
+
+        // insertBefore(삽입하려는 노드, 삽입의 기준이 되는 노드)
+        // appendChild()와 비슷하지만 전달받는 인자가 2개이다.
+        // 기준 노드 앞에 놓이게 된다.
+        otherSide.insertBefore(cloneContainerToFront, otherSide.children[0])
+        
+        // createElement() : 요소를 만드는 메서드
+        // const hello = document.createElement( "h1" )
+        // // <h1></h1> 코드가 생성된다. 하지만 요소를 만들기만해서는 사용할 수 없다. HTML에 없으니까.
+
+        // appendChild() : 선택한 요소 맨뒤에 자식요소를 추가
+        // document.body.appendChild(hello);
+        // <h1>태그 코드를 가진 hello라는 변수가 body태그 내부에 생성된다.
+            
+        // prepend() : appendChild()와 달리 요소의 맨 앞에 위치
+            
+
+        
+        // dom은 node의 계층 구조로 이루어져 있습니다.
+        // node에는 element, text, comment 등 여러 항목이 포함되어 있다는 것에 주의하세요.
+        
+        // node에는 텍스트, element, 주석 등 여러 타입이 있는데,
+        // element는 여러 node 타입 중 한 종류입니다.
+        // element는 <p>, <div>, <a>와 같은 태그를 사용해서 작성된 노드입니다.
+        
+
+        // childNodes : 자식 노드(node)에 접근
+        // 현재 요소의 자식 노드가 포함된 NodeList를 반환합니다. 이때 반환되는 NodeList에는 요소 노드뿐만 아니라 주석 노드와 같은 비 요소 노드를 포함합니다. 
+        // ex)
+        // document.querySelector("div").childNodes
+        // const ele = document.querySelector(".parent");
+        // console.log(ele.childNodes);
+
+        // ex)
+        // children : 자식 요소(element)에 접근
+        // 현재 요소의 자식 요소가 포함된 HTMLCollection을 반환합니다. 비 요소 노드는 모두 제외됩니다.
+        // document.querySelector("div").children
+        // const ele = document.querySelector(".parent");
+        // console.log(ele.children);
+
+    </script>
+</body>
+</html>
