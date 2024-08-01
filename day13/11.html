@@ -38,14 +38,14 @@
 <body>
     <div class="slider">
         <ul class="content-wrapper">
-            <li class="content">1</li>
+            <li class="content">1(처음)</li>
             <li class="content">2</li>
             <li class="content">3</li>
             <li class="content">4</li>
             <li class="content">5</li>
             <li class="content">6</li>
             <li class="content">7</li>
-            <li class="content">8</li>
+            <li class="content">8(끝)</li>
         </ul>
     </div>
     <div class="controls">
@@ -54,52 +54,47 @@
     </div>
 
     <script>
-        const viewCount = 5;
-        const gap = 4;
+        const viewCount = 1;
+        const gap = 0;
         const slider = document.querySelector('.slider')
         const contentWrapper = document.querySelector('.content-wrapper');
         const slideCount = contentWrapper.childElementCount;
         const prevButton = document.querySelector('.prev');
         const nextButton = document.querySelector('.next');
 
-        // const slideWidth
-        // 아래 코드 목적 : 각 컨텐츠 슬라이드 컨텐츠 가로 사이즈 구하고 싶음
-        // clientWidth : 컨텐츠 전체 가로 사이즈
-        // viewCount 각 슬라이드의 갯수
-        const slideWidth = (slider.clientWidth - gap * (viewCount - 1)) / viewCount // 이해 어렵네 ;;;
+        const contentWidth = (slider.clientWidth - gap * (viewCount - 1)) / viewCount
+
+        const cloneFirst = contentWrapper.firstElementChild.cloneNode(true);
+        const cloneLast = contentWrapper.lastElementChild.cloneNode(true);
+
+        contentWrapper.appendChild(cloneFirst);
+        contentWrapper.insertBefore(cloneLast, contentWrapper.firstElementChild);
 
         let index = 0 ;
 
         contentWrapper.style.gap = `${gap}px`
 
-        for(let i = 0 ; i < slideCount ; i ++) {
-            contentWrapper.children[i].style.width = `${slideWidth}px`
+        for(let i = 0 ; i < contentWrapper.childElementCount ; i ++) {
+            contentWrapper.children[i].style.width = `${contentWidth}px`
         }
 
         prevButton.addEventListener('click',()=>{
             index--;
-            // index += viewCount;   viewCount 만큼 한번에 넘어가게 만들기
-
-            // 0에서 슬라이드 멈추게 만들기
             if(index < 0 ) {
-                index = 0 ;
-            }
-            applyIndexToSlider()
-        })
-        nextButton.addEventListener('click',()=>{
-            index++
-            // index -= viewCount;   viewCount 만큼 한번에 넘어가게 만들기
-
-            // 마지막에 멈추게 만들기  -viewCount 추가함
-            if(index > contentWrapper.childElementCount-viewCount) {
                 index = contentWrapper.childElementCount-viewCount;
             }
             applyIndexToSlider()
         })
+        nextButton.addEventListener('click',()=>{
+            index++;
+            if(index > contentWrapper.childElementCount-viewCount) {
+                index = 0 ;
+            }
+            applyIndexToSlider()
+        })
 
-        // 슬라이드 버튼을 넘기면, (슬라이드 가로 사이즈 + gap)이 같이 넘어가야함
         function applyIndexToSlider(){
-            contentWrapper.style.transform = `translateX(${index * -(slideWidth + gap)}px)`
+            contentWrapper.style.transform = `translateX(${index * -(contentWidth + gap)}px)`
         }
     </script>
 </body>

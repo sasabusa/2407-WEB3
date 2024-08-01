@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -54,8 +54,8 @@
     </div>
 
     <script>
-        const viewCount = 5;
-        const gap = 4;
+        const viewCount = 1;
+        const gap = 0;
         const slider = document.querySelector('.slider')
         const contentWrapper = document.querySelector('.content-wrapper');
         const slideCount = contentWrapper.childElementCount;
@@ -80,19 +80,17 @@
             index--;
             // index += viewCount;   viewCount 만큼 한번에 넘어가게 만들기
 
-            // 0에서 슬라이드 멈추게 만들기
             if(index < 0 ) {
-                index = 0 ;
+                index = contentWrapper.childElementCount-viewCount;
             }
             applyIndexToSlider()
         })
         nextButton.addEventListener('click',()=>{
             index++
             // index -= viewCount;   viewCount 만큼 한번에 넘어가게 만들기
-
-            // 마지막에 멈추게 만들기  -viewCount 추가함
+            
             if(index > contentWrapper.childElementCount-viewCount) {
-                index = contentWrapper.childElementCount-viewCount;
+                index = 0;
             }
             applyIndexToSlider()
         })
