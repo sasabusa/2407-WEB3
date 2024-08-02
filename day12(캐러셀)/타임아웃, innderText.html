@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>setTimeout 기능</title>
+</head>
+<body>
+    <!-- 
+        버튼을 누르면 p.text 안의 텍스트는 '광고일까요?'로 변경 되고
+        2초 뒤 p.text안의 텍스트가 '광고입니다!'로 다시 변경되도록 만들어주세요
+
+        버튼은 한번만 클릭했을때 위와같이 작동해야합니다.
+    -->
+
+    <!--
+        자바스크립트로 텍스트를 바꾸는 방법 3가지
+        1. textContent - 'Node'의 속성, <script>나 <style> 태그에 상관없이 해당 노드가 가지고 있는 텍스트 값을 모두 읽어온다.
+        2. innerText - 'Element'의 속성, element내에서 사용자에게 보여지는 text값들을 가져오거나 설정
+        3. innerHTML - 'Element'의 속성, element내에 포함 된 HTML 또는 XML 마크업을 가져오거나 태그와 함께 입력하여 내용을 직접 설정
+        https://blog.illustudio.co.kr/js-change-content/#google_vignette
+    -->
+
+    <button class="ad">광고</button>
+    <p class="text">조용..</p>
+
+    <script>
+
+        const adButton = document.querySelector('.ad');
+        const pText = document.querySelector('p.text');
+
+        adButton.addEventListener('click', () => {
+            pText.innerText = '광고일까요?';
+            setTimeout(()=>{
+                pText.innerText = '광고입니다!';
+            },2000)
+        })
+
+        // function 광고예요(){
+        //     alert('광고예요');
+        // }
+
+        // adButton.addEventListener('click',()=>{
+        //     setTimeout(광고예요, 1000)
+        // })
+
+
+
+        // setTimeout() 함수 문법
+        // setTimeout(function, milliseconds, parameter1, parameter2, ...);
+        // setTimeout(함수 자체 or 기명 함수, 기다리는 시간)
+        // ex)
+        // function greeting(name, role){
+        //     console.log(`Hello, my name is ${name}`);
+        //     console.log(`I'm a ${role}`);
+        //   }
+          
+        //   setTimeout(greeting, 3000, "Nathan", "Software developer");
+
+
+
+        setTimeout(()=>{
+            alert('광고일걸요?')
+        }, 2000)
+
+        
+
+    </script>
+</body>
+</html>
