@@ -6,6 +6,27 @@
     <title>setTimeout 기능</title>
 </head>
 <body>
+    <!--
+        자바스크립트로 텍스트를 바꾸는 방법 3가지
+        1. textContent - 'Node'의 속성, <script>나 <style> 태그에 상관없이 해당 노드가 가지고 있는 텍스트 값을 모두 읽어온다.
+        2. innerText - 'Element'의 속성, element내에서 사용자에게 보여지는 text값들을 가져오거나 설정
+        3. innerHTML - 'Element'의 속성, element내에 포함 된 HTML 또는 XML 마크업을 가져오거나 태그와 함께 입력하여 내용을 직접 설정
+        
+        ex)
+        change 변수에 저장
+        const change = document.getElementById('change');
+
+        특정 아이디를 지정하는 것임
+        document.getElementById('change').innerText = 'id 텍스트 바뀌나';
+
+        ★변수를 지정하는 것임. 변수가 지정이 안되어 있으면 오류가 발생. 이것이 위 코드와의 차이점
+        change.innerText = 'id 텍스트 바뀌나';
+
+        getElementsByClassName을 사용할 경우에는 배열 [0]을 사용해야 함.
+        document.getElementsByClassName('change').innerText = 'class 텍스트 바뀌나';
+        change[0].innerText = 'class 텍스트 바뀌나';
+    -->
+
     <!-- 코드 목적 : 
         버튼을 누르면 p.text 안의 텍스트는 '광고일까요?'로 변경 되고
         2초 뒤 p.text안의 텍스트가 '광고입니다!'로 다시 변경되도록 만들어주세요
@@ -13,13 +34,6 @@
         버튼은 한번만 클릭했을때 위와같이 작동해야합니다.
     -->
 
-    <!--
-        자바스크립트로 텍스트를 바꾸는 방법 3가지
-        1. textContent - 'Node'의 속성, <script>나 <style> 태그에 상관없이 해당 노드가 가지고 있는 텍스트 값을 모두 읽어온다.
-        2. innerText - 'Element'의 속성, element내에서 사용자에게 보여지는 text값들을 가져오거나 설정
-        3. innerHTML - 'Element'의 속성, element내에 포함 된 HTML 또는 XML 마크업을 가져오거나 태그와 함께 입력하여 내용을 직접 설정
-        https://blog.illustudio.co.kr/js-change-content/#google_vignette
-    -->
 
     <button class="ad">광고</button>
     <p class="text">조용..</p>
