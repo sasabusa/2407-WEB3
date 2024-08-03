@@ -37,6 +37,10 @@
         // css 선택자를 이용해서 요소를 가져올 수 있다.
         // 가장 먼저 만나는 하나의 요소만을 가져온다.
 
+        // querySelectorAll() : HTML 문서나 parentNode 객체(부모 요소 객체) 내에서 지정한 CSS 선택자와 일치하는 모든 요소를 반환
+        // HTML 문서 전체에서 : document.querySelectorAll(selectors)
+        // 특정 요소 내에서 : parentNode.querySelectorAll(selectors)
+
         const 쿼리셀렉터올 = document.querySelectorAll('.box-class > .my-p-tag')
         console.log(쿼리셀렉터올);
 

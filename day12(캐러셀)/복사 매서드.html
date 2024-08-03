@@ -20,7 +20,7 @@
     </div>
 
     <script>
-        // 목적 : 요소 복사하고, 클래스 추가하고, 부모 노드에 자식 노드로 추가하기
+        // 목적 : 요소 복사하고, 클래스 추가하고, 부모 노드에 자식 노드로 추가하기, 4번 반복
         const container = document.querySelector('.container');
         const otherSide = document.querySelector('.other-side');
   
@@ -37,10 +37,10 @@
 
         const cloneContainerToFront = container.cloneNode(true);
 
-        // insertBefore(삽입하려는 노드, 삽입의 기준 노드)
+        // 부모노드.insertBefore(삽입 할 노드, 기준 점 노드);
         // appendChild()와 비슷하지만 전달받는 인자가 2개이다.
         // 기준 노드 앞에 놓이게 된다.
-        otherSide.insertBefore(cloneContainerToFront, otherSide.children[0])
+        otherSide.insertBefore(cloneContainerToFront, otherSide.children[0]);
         
         // createElement() : 요소를 만드는 메서드
         // const hello = document.createElement( "h1" )
@@ -66,15 +66,11 @@
         // 현재 요소의 자식 노드가 포함된 NodeList를 반환합니다. 이때 반환되는 NodeList에는 요소 노드뿐만 아니라 주석 노드와 같은 비 요소 노드를 포함합니다. 
         // ex)
         // document.querySelector("div").childNodes
-        // const ele = document.querySelector(".parent");
-        // console.log(ele.childNodes);
 
         // ex)
         // children : 자식 요소(element)에 접근
         // 현재 요소의 자식 요소가 포함된 HTMLCollection을 반환합니다. 비 요소 노드는 모두 제외됩니다.
         // document.querySelector("div").children
-        // const ele = document.querySelector(".parent");
-        // console.log(ele.children);
 
     </script>
 </body>
