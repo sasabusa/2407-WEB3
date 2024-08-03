@@ -20,7 +20,7 @@
     </div>
 
     <script>
-
+        // 목적 : 요소 복사하고, 클래스 추가하고, 부모 노드에 자식 노드로 추가하기
         const container = document.querySelector('.container');
         const otherSide = document.querySelector('.other-side');
   
@@ -37,7 +37,7 @@
 
         const cloneContainerToFront = container.cloneNode(true);
 
-        // insertBefore(삽입하려는 노드, 삽입의 기준이 되는 노드)
+        // insertBefore(삽입하려는 노드, 삽입의 기준 노드)
         // appendChild()와 비슷하지만 전달받는 인자가 2개이다.
         // 기준 노드 앞에 놓이게 된다.
         otherSide.insertBefore(cloneContainerToFront, otherSide.children[0])
