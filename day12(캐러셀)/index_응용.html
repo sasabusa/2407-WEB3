@@ -54,7 +54,7 @@
     </div>
 
     <script>
-        const viewCount = 5;
+        const viewCount = 5; // 슬라이드 갯수
         const gap = 4;
         const slider = document.querySelector('.slider')
         const contentWrapper = document.querySelector('.content-wrapper');
@@ -63,9 +63,9 @@
         const nextButton = document.querySelector('.next');
 
         // const slideWidth
-        // 아래 코드 목적 : 각 컨텐츠 슬라이드 컨텐츠 가로 사이즈 구하고 싶음
+        // 아래 코드 목표 : 각 컨텐츠 슬라이드 컨텐츠 가로 사이즈 구하고 싶음
+        
         // clientWidth : 컨텐츠 전체 가로 사이즈
-        // viewCount 각 슬라이드의 갯수
         const slideWidth = (slider.clientWidth - gap * (viewCount - 1)) / viewCount // 이해 어렵네 ;;;
 
         let index = 0 ;

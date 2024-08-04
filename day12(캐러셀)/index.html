@@ -55,8 +55,9 @@
         const contentWrapper = document.querySelector('.content-wrapper');
         const nextButton = document.querySelector('.next');
         const prevButton = document.querySelector('.prev');
-        // clientWidth 속성은 요소의 가로 값(마진/보더 불포함)을 가져옵니다.
-        const slideWidth = contentWrapper.children[0].clientWidth
+        // clientWidth 속성은 border 안쪽의 width와 height 정보를 제공, 요소의 가로 값(마진/보더 불포함)을 가져옵니다.
+        // offsetWidth 속성은 요소의 가로 값(보더/패딩 포함)을 가져옵니다.
+        const slideWidth = contentWrapper.children[0].clientWidth;
 
         // index 왜 넣지? 용도가 뭐야?
         let index = 0;
@@ -67,8 +68,8 @@
                 index = 0;
             }
 
-            contentWrapper.style.transform = `translateX(${index * -300}px)`
-            console.log(index)
+            contentWrapper.style.transform = `translateX(${index * -300}px)`;
+            console.log(index);
         })
         
         nextButton.addEventListener('click',() => {

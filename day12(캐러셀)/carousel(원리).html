@@ -48,12 +48,7 @@
     </div>
 
     <script>
-        // 내가 쓴 답
-        // const nextButton = document.querySelector('.next');
-
-        // nextButton.addEventListener('click', () => {
-        //     document.getElementsByClassName('.content').style.width = 600;
-        // })
+        // 목표 : 버튼을 클릭할 때마다, 300px씩 슬라이드가 이동하게 한다.
 
         const contentWrapper = document.querySelector('.content-wrapper');
         const nextButton = document.querySelector('.next');
@@ -67,7 +62,7 @@
         prevButton.addEventListener('click',() => {
             좌표 = 좌표 + 300;  // 클릭할 때 마다 300px씩 늘어나게끔. 300수치를 넣으면, 계속 300px 제자리임.
             // 좌표 += 300; // 같은 의미
-            // contenWrapper를 -300px만큼 이동하게 해야함
+            // contenWrapper를 +300px만큼 이동하게 해야함
             contentWrapper.style.transform = `translateX(${좌표}px)`
         })
         
