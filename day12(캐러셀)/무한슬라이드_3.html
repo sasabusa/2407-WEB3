@@ -61,8 +61,9 @@
         const slideCount = contentWrapper.childElementCount;
         const prevButton = document.querySelector('.prev');
         const nextButton = document.querySelector('.next');
+        const transitionTime = 300;
 
-        const contentWidth = (slider.clientWidth - gap * (viewCount - 1)) / viewCount
+        const contentWidth = (slider.clientWidth - gap * (viewCount - 1)) / viewCount;
 
         const cloneFirst = contentWrapper.firstElementChild.cloneNode(true);
         const cloneLast = contentWrapper.lastElementChild.cloneNode(true);
@@ -70,50 +71,75 @@
         contentWrapper.appendChild(cloneFirst);
         contentWrapper.insertBefore(cloneLast, contentWrapper.firstElementChild);
 
-        let index = 0 ;
+        let index = viewCount;
+        let playAble = true; //플레이 상태 변수
 
-        contentWrapper.style.gap = `${gap}px`
+        applyIndexToSlider(false); // transition 효과를 없앰
+
+        contentWrapper.style.gap = `${gap}px`;
 
         for(let i = 0 ; i < contentWrapper.childElementCount ; i ++) {
-            contentWrapper.children[i].style.width = `${contentWidth}px`
+            contentWrapper.children[i].style.width = `${contentWidth}px`;
         }
 
-        prevButton.addEventListener('click',()=>{
+        prevButton.addEventListener('click',() => {
             index--;
             if(index < 1 ) {
                 index = contentWrapper.childElementCount-viewCount-1;
             }
-            applyIndexToSlider()
+            applyIndexToSlider(true);
         })
 
-        // nextButton 클릭 시, 인덱스를 증가시키며 인덱스가 마지막 슬라이드 복제본에 도달하면 transition 지속시간만큼 시간이 지난 후 transition을 0으로 만들고, 좌표를 첫 번째 슬라이드로 바꿉니다.
-        nextButton.addEventListener('click',()=>{
- 
-            index++;
-            applyIndexToSlider()
+        // nextButton 클릭 시, 인덱스를 증가시키며 인덱스가 마지막 슬라이드 복제본에 도달하면,
+        // transition 지속시간만큼 시간이 지난 후 transition을 0으로 만들고, 좌표를 첫 번째 슬라이드로 바꿉니다.
+        nextButton.addEventListener('click',() => {
+            // 아래 값을 함수에 넣음. 중복이라서 단수화 시키기위해서
+            if(playAble){
+                playAble = false;
 
-            // 만약 마지막 슬라이드(복사본)에 도달 했다면
+                index++;
+                applyIndexToSlider(true);
+                
+                setTimeout(() => {
+                    playAble = true;
+
+                    if(index === contentWrapper.childElementCount-viewCount) {
+                        // transtion 지속시간만큼 시간이 흐른 뒤에
+                        // transtion을 0으로 만들고, 좌표를 첫번째 슬라이드로 바꿔치기한다
+                        index = viewCount;
+                        applyIndexToSlider(false);
+                    }
+                }, transitionTime);
+
+
+            // 만약 마지막 슬라이드(복사본)에 도달 했다면,
             // transtion 지속시간만큼 시간이 흐른 뒤에
             // transtion을 0으로 만들고, 좌표를 첫번째 슬라이드로 바꿔치기한다
-            if(index > contentWrapper.childElementCount-viewCount-2) {
-                setTimeout( () => {
-                    index = viewCount;
-                    applyIndexToSlider(false);
 
-                    // 변수 = 재생중
-                    // if(재생중 실행x, 재생중아니면, 실행o)
-                    
-
-                }, 500);
-            }
+            // // 만약 마지막 슬라이드(복사본)에 도달 했다면
+            // setTimeout( () => {
+            //     playAble = true;
+            //     console.log(playAble)
+            // }, transitionTime);
             
+            // if(index > contentWrapper.childElementCount-viewCount) {
+            //     setTimeout(() => {
+            //         index = viewCount;
+            //         applyIndexToSlider(false);
 
+            //     }, transitionTime);
+            }
+                    
+            // 무한슬라이드에서 애니메이션 중복작동 처리를 해주지 않으면
+            // 슬라이드가 인덱스 밖으로 뛰쳐 나가는 문제가 발생합니다.
+            // 플레이 상태를 담는 변수, if문, setTimeout을 이용해 처리르 가능합니다.
 
 
 
         })
 
-        // applyIndexToSlider 함수는 animation 매개변수를 받아 애니메이션을 적용할지 여부를 결정합니다. animation이 참이면 transition을 적용하고, 거짓이면 transition 없이 슬라이드를 이동시킵니다.
+        // applyIndexToSlider 함수는 animation 매개변수를 받아 애니메이션을 적용할지 여부를 결정합니다.
+        // animation이 참이면 transition을 적용하고, 거짓이면 transition 없이 슬라이드를 이동시킵니다.
         function applyIndexToSlider(animation){
             if(animation) {
                 contentWrapper.style.transition = `0.5s`
