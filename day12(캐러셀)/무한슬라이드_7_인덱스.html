@@ -135,10 +135,12 @@
 
         // 퍼스트, 라스트 말고 개체.children[index]
 
+
+        // 버튼 갯수 추가했는데, 놓쳤다. 아래 코드에 삽입된거 같은데.......
         for(let i = 0 ; i < slideCount ; i ++ ){
             const button = document.createElement('div');
             button.classList.add('radio-button');
-            button.addEventListener('click',()=>{
+            button.addEventListener('click', () => {
                 index = viewCount + i;
                 applyIndexToSlider(true)
             })
