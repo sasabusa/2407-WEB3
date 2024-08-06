@@ -10,6 +10,7 @@
             padding: 0;
         }
 
+        /* 왜 .slider에 크기를 지정하나? */
         .slider {
             width: 500px;
             height: 200px;
@@ -63,7 +64,7 @@
         const nextButton = document.querySelector('.next');
         const transitionTime = 300;
 
-        const contentWidth = (slider.clientWidth - gap * (viewCount - 1)) / viewCount;
+        const contentWidth = (slider.clientWidth - gap * (viewCount - 1)) / viewCount; // 이해가 안되네;;;
 
         const cloneFirst = contentWrapper.firstElementChild.cloneNode(true);
         const cloneLast = contentWrapper.lastElementChild.cloneNode(true);
