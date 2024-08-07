@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -84,7 +84,6 @@
 </head>
 <body>
     <div class="slider-container">
-
         <div class="slider">
             <ul class="content-wrapper">
                 <li class="content">1(처음)</li>
@@ -113,8 +112,14 @@
     </div>
 
     <script>
+        // 메모
+        // function() 는 먼저 실행, 뒤에 선언을 해도 됨. 함수는 미리 읽고 저장을 하기때문
+        // const  함수 () => {}
+        // 함수(); 의 경우에는 순서를 지켜줘야 함. 먼저 선언, 뒤에 실행.
+
+
         const viewCount = 2;
-        const gap = 0;
+        const gap = 5;
         const slider = document.querySelector('.slider')
         const contentWrapper = document.querySelector('.content-wrapper');
         const slideCount = contentWrapper.childElementCount;
